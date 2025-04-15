@@ -16,7 +16,7 @@ export const setupServer = () => {
 
     app.get("/api/contacts", allContactsController)
 
-    app.get("/api/contacts/:id", contactsByIdController)
+    app.get("/api/contacts/:contactId", contactsByIdController)
 
     const port = Number(process.env.PORT) || 3000;
 
