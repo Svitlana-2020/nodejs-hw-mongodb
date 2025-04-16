@@ -14,9 +14,9 @@ export const setupServer = () => {
     app.use(cors());
     app.use(express.json())
 
-    app.get("/api/contacts", allContactsController)
+    app.get("/contacts", allContactsController)
 
-    app.get("/api/contacts/:contactId", contactsByIdController)
+    app.get("/contacts/:contactId", contactsByIdController)
 
     const port = Number(process.env.PORT) || 3000;
 
