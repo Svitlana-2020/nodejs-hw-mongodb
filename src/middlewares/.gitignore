@@ -1,0 +1,24 @@
+errorHandler.js
+export const errorHandler = (error, req, res, next ) => {
+    res.status(500).json({
+        status: 500,
+        message: "Something went wrong",
+        data, // конкретне повідомлення про помилку, отримане з об'єкта помилки
+})}
+
+logger.js
+import pino from "pino-http";
+import PinoPretty from "pino-pretty";
+
+export const logger = pino ({
+    transport: {
+        target: "pino-pretty"
+    }
+});
+
+notFoundHandler.js
+export const notFoundHandler = (req, res) => {
+    res.status(404).json({
+        message: `${req.url} was not found`
+    })
+}
