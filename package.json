@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon src/index.js",
-    "start": "node src/server.js"
+    "start": "node src/index.js"
   },
   "keywords": [],
   "author": "Svitlana Chernysheva <s4astije@gmail.com>",
