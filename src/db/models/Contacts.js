@@ -1,5 +1,6 @@
 import { Schema, model } from 'mongoose';
 import { typeList } from '../../constants/contacts.js';
+import { handleSaveError } from './hooks.js';
 
 const contactsSchema = new Schema(
   {
@@ -20,7 +21,7 @@ const contactsSchema = new Schema(
     isFavourite: {
       type: Boolean,
       default: false,
-      required: true,
+      // required: true,
     },
 
     contactType: {
@@ -37,6 +38,8 @@ const contactsSchema = new Schema(
 );
 
 const Contacts = model('Contact', contactsSchema);
+
+contactsSchema.pre("save", handleSaveError)
 
 export const contactsSortFields = [
   'name',

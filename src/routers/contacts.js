@@ -10,6 +10,7 @@ import { ctrlWrapper } from "../utils/ctrlWrapper.js";
 import { schemeWrapper } from "../utils/schemeWrapper.js";
 import { contactAddScheme, contactUpdateScheme } from "../validation/contacts.js";
 import {isValidId} from "../middlewares/isValidId.js"
+import { checkEmptyBody } from "../middlewares/emptyBody.js";
 
 const contactsRouter = Router ();
 
@@ -17,9 +18,9 @@ const contactsRouter = Router ();
 
     contactsRouter.get("/contacts/:contactId", isValidId, ctrlWrapper(contactsByIdController))
 
-    contactsRouter.post("/contacts", schemeWrapper(contactAddScheme), ctrlWrapper(postContact) )
+    contactsRouter.post("/contacts", checkEmptyBody, schemeWrapper(contactAddScheme), ctrlWrapper(postContact) )
 
-    contactsRouter.patch("/contacts/:contactId", isValidId, schemeWrapper(contactUpdateScheme),ctrlWrapper(patchContactController))
+    contactsRouter.patch("/contacts/:contactId", checkEmptyBody, isValidId, schemeWrapper(contactUpdateScheme),ctrlWrapper(patchContactController))
 
     contactsRouter.delete("/contacts/:contactId", isValidId, ctrlWrapper(delContact))
 
