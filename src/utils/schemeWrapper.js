@@ -9,7 +9,7 @@ await schema.validateAsync(req.body, {
 next ()
         }
         catch (error) {
-throw createHttpError(400, error.message)
+            next(createHttpError(400, error.message))
         }
     }
     return func
