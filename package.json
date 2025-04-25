@@ -16,9 +16,13 @@
     "pino-pretty": "^13.0.0"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
+    "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
+    "example": "^0.0.0",
     "express": "^4.21.2",
+    "hash": "^0.2.1",
     "http-error": "^0.0.6",
     "http-errors": "^2.0.0",
     "joi": "^17.13.3",

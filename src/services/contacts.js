@@ -3,20 +3,22 @@ import { calcPaginationData } from '../utils/calcPaginationData.js';
 import { sortList } from '../constants/index.js';
 
 const getAllContacts = async ({
+  userId,
   page = 1,
   perPage = 10,
   sortBy = 'contactId',
   sortOrder = sortList[0],
 }) => {
   const skip = (page - 1) * perPage;
-  const items = await Contacts.find()
+  const items = await Contacts.find({userId})
     .skip(skip)
     .limit(perPage)
     .sort({ [sortBy]: sortOrder });
-  const totalItems = await Contacts.find().countDocuments();
+  const totalItems = await Contacts.find({userId}).countDocuments();
   const paginationData = calcPaginationData({ page, perPage, totalItems });
 
   return {
+    userId,
     items,
     page,
     perPage,
