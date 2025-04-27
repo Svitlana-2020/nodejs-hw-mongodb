@@ -5,7 +5,7 @@ export const contactAddScheme = joi.object ({
     name: joi.string().min(3).max(20).required(),
     phoneNumber: joi.string().min(3).max(20).required(),
     email: joi.string().min(3).max(20),
-    isFavourite: joi.boolean().required(),
+    isFavourite: joi.boolean(),
     contactType: joi.string().valid(...typeList).required(),
 })
 
