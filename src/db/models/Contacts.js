@@ -31,8 +31,8 @@ const contactsSchema = new Schema(
       required: true,
     },
 
-    userID: {
-      type:Schema.Types.ObjectId,
+    userId: {
+      type: Schema.Types.ObjectId,
       ref: "user",
       required: true,
     }
@@ -45,7 +45,8 @@ const contactsSchema = new Schema(
 
 const Contacts = model('Contact', contactsSchema);
 
-contactsSchema.pre("save", handleSaveError)
+contactsSchema.post('save', handleSaveError);
+contactsSchema.post('findOneAndUpdate', handleSaveError);
 
 export const contactsSortFields = [
   'name',
