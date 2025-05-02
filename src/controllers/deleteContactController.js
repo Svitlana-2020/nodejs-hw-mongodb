@@ -5,7 +5,7 @@ const delContact = async (req, res) => {
     const{_id: userId} = req.user;
     const {contactId} = req.params;
     console.log("Deleting contact:", contactId);
-    const data = await deleteContact({_id:contactId, userId});
+    const data = await deleteContact(contactId, userId);
 
     if(!data) {
         throw createHttpError (404, "Contact not found")

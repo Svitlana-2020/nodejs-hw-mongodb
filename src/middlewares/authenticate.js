@@ -2,6 +2,10 @@ import createHttpError from 'http-errors';
 import { findSession, findUser } from '../services/auth.js';
 
 export const authenticate = async (req, res, next) => {
+  if (req.path === '/auth/refresh') {
+    return next();
+  }
+
   const authorization = req.get('Authorization');
   if (!authorization) {
     return next(createHttpError(401, 'Bearer token is missing'));

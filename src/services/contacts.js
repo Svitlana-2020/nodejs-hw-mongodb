@@ -10,7 +10,7 @@ const getAllContacts = async ({
   sortOrder = sortList[0],
 }) => {
   const skip = (page - 1) * perPage;
-  const items = await Contacts.find({userId})
+  const data = await Contacts.find({userId})
     .skip(skip)
     .limit(perPage)
     .sort({ [sortBy]: sortOrder });
@@ -18,8 +18,7 @@ const getAllContacts = async ({
   const paginationData = calcPaginationData({ page, perPage, totalItems });
 
   return {
-    userId,
-    items,
+    data,
     page,
     perPage,
     totalItems,

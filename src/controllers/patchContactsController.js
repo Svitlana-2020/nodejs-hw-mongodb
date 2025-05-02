@@ -7,7 +7,7 @@ const patchContact = async (req, res) => {
   const {contactId} = req.params;
   console.log("PATCH contact:", contactId);
   console.log("Body:", req.body);
-  const result = await updateContact({ _id: contactId, userId }, req.body);
+  const result = await updateContact(contactId, userId, req.body);
 
   if (!result) {
     throw createHttpError (404, "Contact not found")
