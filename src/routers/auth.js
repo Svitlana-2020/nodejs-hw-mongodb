@@ -1,12 +1,14 @@
 import { Router } from 'express';
 import { ctrlWrapper } from '../utils/ctrlWrapper.js';
-import { authLoginScheme, authRegisterScheme } from '../validation/auth.js';
+import { authLoginScheme, authRegisterScheme, requestResetEmailSchema, resetPasswordSchema } from '../validation/auth.js';
 import { schemeWrapper } from '../utils/schemeWrapper.js';
 import {
   loginController,
   registerController,
   refreshController,
   logOutController,
+  requestResetEmailController,
+  resetPasswordController,
 } from '../controllers/auth.js';
 import { authenticate } from '../middlewares/authenticate.js';
 
@@ -22,7 +24,19 @@ authRouter.post(
   schemeWrapper(authLoginScheme),
   ctrlWrapper(loginController),
 );
-authRouter.post('/refresh', authenticate, refreshController);
+authRouter.post('/refresh', refreshController);
 authRouter.post('/logout', authenticate, ctrlWrapper(logOutController))
+
+authRouter.post(
+  '/request-reset-email',
+  schemeWrapper(requestResetEmailSchema),
+  ctrlWrapper(requestResetEmailController),
+);
+
+authRouter.post(
+  '/reset-password',
+  schemeWrapper(resetPasswordSchema),
+  ctrlWrapper(resetPasswordController),
+);
 
 export default authRouter;

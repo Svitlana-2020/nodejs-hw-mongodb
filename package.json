@@ -22,13 +22,16 @@
     "dotenv": "^16.4.7",
     "example": "^0.0.0",
     "express": "^4.21.2",
+    "handlebars": "^4.7.8",
     "hash": "^0.2.1",
     "http-error": "^0.0.6",
     "http-errors": "^2.0.0",
     "joi": "^17.13.3",
     "joy": "^0.1.1",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.12.0",
     "mongoose": "^8.13.2",
+    "nodemailer": "^6.10.1",
     "pino": "^9.6.0",
     "pino-http": "^10.4.0"
   }
