@@ -34,6 +34,7 @@ const createSession = () => {
   const refreshTokenValidUntil = Date.now() + refreshTokenLifeTime;
 
   return {
+    
     accessToken,
     refreshToken,
     accessTokenValidUntil,
