@@ -13,6 +13,7 @@ import { logger } from './middlewares/logger.js';
 import contactsRouter from './routers/contacts.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
+import { UPLOAD_DIR } from './constants/index.js';
 
 
 
@@ -24,6 +25,7 @@ export const setupServer = () => {
   app.use(express.json());
   // app.use(logger);
   app.use("/auth", authRouter);
+  app.use('/uploads', express.static(UPLOAD_DIR));
 
   app.use("/contacts", contactsRouter);
   app.use(notFoundHandler);

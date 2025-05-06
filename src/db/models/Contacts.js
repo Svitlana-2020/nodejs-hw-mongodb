@@ -35,7 +35,10 @@ const contactsSchema = new Schema(
       type: Schema.Types.ObjectId,
       ref: "user",
       required: true,
-    }
+    },
+
+    photo: { type: String }
+
   },
   {
     versionKey: false,
@@ -54,6 +57,7 @@ export const contactsSortFields = [
   'email',
   'isFavourite',
   'contactType',
+  'photo'
 ];
 
 export default Contacts;

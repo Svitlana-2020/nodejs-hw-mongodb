@@ -89,9 +89,10 @@ export const refreshUser = async ({ refreshToken, sessionId }) => {
   });
 };
 
-export const logOutUser = sessionId => {
-    SessionCollection.findOneAndDelete({_id: sessionId})
-}
+export const logOutUser = async (sessionId) => {
+  const result = await SessionCollection.findOneAndDelete({ _id: sessionId });
+  console.log('Deleted session:', result);
+};
 
 export const requestResetToken = async (email) => {
   const user = await userCollection.findOne({ email });
@@ -105,7 +106,7 @@ export const requestResetToken = async (email) => {
     },
     getEnvVar('JWT_SECRET'),
     {
-      expiresIn: '15m',
+      expiresIn: '5m',
     },
   );
 
@@ -124,12 +125,15 @@ export const requestResetToken = async (email) => {
     link: `${getEnvVar('APP_DOMAIN')}/reset-password?token=${resetToken}`,
   });
 
-  await sendEmail({
+  const result = await sendEmail({
     from: getEnvVar(SMTP.SMTP_FROM),
     to: email,
     subject: 'Reset your password',
     html,
   });
+  if (result.rejected?.length) {
+    throw createHttpError(500, 'Failed to send the email, please try again later.');
+  }
 };
 
 export const resetPassword = async (payload) => {
@@ -138,7 +142,7 @@ export const resetPassword = async (payload) => {
   try {
     entries = jwt.verify(payload.token, getEnvVar('JWT_SECRET'));
   } catch (err) {
-    if (err instanceof Error) throw createHttpError(401, err.message);
+    if (err instanceof Error) throw createHttpError(401, 'Token is expired or invalid.');
     throw err;
   }
 
