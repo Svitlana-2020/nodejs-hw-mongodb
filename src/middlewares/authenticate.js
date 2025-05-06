@@ -13,6 +13,8 @@ export const authenticate = async (req, res, next) => {
 
   const [bearer, accessToken] = authorization.split(' ');
 
+  
+
   const session = await findSession({ accessToken });
 
   if (!session) {

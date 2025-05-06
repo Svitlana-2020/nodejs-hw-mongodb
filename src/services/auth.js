@@ -82,6 +82,11 @@ export const refreshUser = async ({ refreshToken, sessionId }) => {
   });
 };
 
-export const logOutUser = sessionId => {
-    SessionCollection.findOneAndDelete({_id: sessionId})
-}
+// export const logOutUser = sessionId => {
+//     SessionCollection.findOneAndDelete({_id: sessionId})
+// }
+
+export const logOutUser = async (sessionId) => {
+  const result = await SessionCollection.findOneAndDelete({ _id: sessionId });
+  console.log('Deleted session:', result);
+};

@@ -2,6 +2,10 @@ import { loginUser, registerUser, logOutUser, refreshUser} from '../services/aut
 
 const setupSession = (res, session) => {
   res
+  // .cookie('accessToken', session.accessToken, {
+  //   httpOnly: true,
+  //   expires: session.refreshTokenValidUntil,
+  // })
     .cookie('refreshToken', session.refreshToken, {
       httpOnly: true,
       expires: session.refreshTokenValidUntil,
@@ -59,5 +63,6 @@ export const logOutController = async (req, res) => {
 
   res.clearCookie("sessionId");
   res.clearCookie("refreshToken")
+  // res.clearCookie("accessToken")
   res.status(204).send();
 };
