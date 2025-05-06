@@ -25,10 +25,10 @@ authRouter.post(
   ctrlWrapper(loginController),
 );
 authRouter.post('/refresh', refreshController);
-authRouter.post('/logout', authenticate, ctrlWrapper(logOutController))
+authRouter.post('/logout', ctrlWrapper(logOutController))
 
 authRouter.post(
-  '/request-reset-email',
+  '/sent-reset-email',
   schemeWrapper(requestResetEmailSchema),
   ctrlWrapper(requestResetEmailController),
 );
