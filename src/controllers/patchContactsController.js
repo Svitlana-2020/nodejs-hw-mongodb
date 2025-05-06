@@ -8,8 +8,6 @@ const patchContact = async (req, res) => {
   const{_id: userId} = req.user;
   const {contactId} = req.params;
   const photo = req.file;
-  console.log("PATCH contact:", contactId);
-  console.log("Body:", req.body);
 
   let photoUrl;
 
