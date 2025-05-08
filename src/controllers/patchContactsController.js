@@ -3,6 +3,7 @@ import {updateContact} from "../services/updateContact.js";
 import createHttpError from "http-errors";
 import { saveFileToCloudinary } from "../utils/saveFileToCloudinary.js";
 import { getEnvVar } from "../utils/getEnvVar.js";
+import { saveFileToUploadDir } from "../utils/saveFileToUploadDir.js";
 
 const patchContact = async (req, res) => {
   const{_id: userId} = req.user;

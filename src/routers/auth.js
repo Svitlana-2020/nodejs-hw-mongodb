@@ -28,13 +28,13 @@ authRouter.post('/refresh', refreshController);
 authRouter.post('/logout', ctrlWrapper(logOutController))
 
 authRouter.post(
-  '/sent-reset-email',
+  '/send-reset-email',
   schemeWrapper(requestResetEmailSchema),
   ctrlWrapper(requestResetEmailController),
 );
 
 authRouter.post(
-  '/reset-password',
+  '/reset-pwd',
   schemeWrapper(resetPasswordSchema),
   ctrlWrapper(resetPasswordController),
 );
