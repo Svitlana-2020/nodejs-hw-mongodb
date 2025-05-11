@@ -1,0 +1,33 @@
+openapi: 3.1.0
+info:
+  version: 1.0.0
+  title: Contact list
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  description:
+    create favourite Contact list
+tags:
+   []
+
+servers:
+  - url: http://localhost:3005
+  # - url: #посилання на задеплоєний сайт
+paths:
+  /contacts:
+    get:
+      $ref: ../src/swagger/paths/get.yaml
+    post: 
+      $ref: ../src/swagger/paths/post.yaml
+  /contacts/{id}:
+    get: 
+      $ref: ../src/swagger/paths/id/get.yaml
+    patch:
+      $ref: ../src/swagger/paths/id/patch.yaml
+    delete:
+      $ref: ../src/swagger/paths/id/delete.yaml
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer

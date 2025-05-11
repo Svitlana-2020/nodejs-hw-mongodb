@@ -7,6 +7,7 @@ import allContactsController from './controllers/contactsController.js';
 import contactsByIdController from './controllers/contactsByIdController.js';
 import authRouter from './routers/auth.js';
 import cookieParser from 'cookie-parser';
+import { swaggerDocs } from './middlewares/swaggerDocs.js';
 
 import { getEnvVar } from './utils/getEnvVar.js';
 import { logger } from './middlewares/logger.js';
@@ -26,6 +27,7 @@ export const setupServer = () => {
   // app.use(logger);
   app.use("/auth", authRouter);
   app.use('/uploads', express.static(UPLOAD_DIR));
+  app.use('/api-docs', swaggerDocs());
 
   app.use("/contacts", contactsRouter);
   app.use(notFoundHandler);
