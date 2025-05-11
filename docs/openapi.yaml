@@ -12,7 +12,7 @@ tags:
 
 servers:
   - url: http://localhost:3005
-  # - url: #посилання на задеплоєний сайт
+  - url: https://nodejs-hw-mongodb-rpua.onrender.com
 paths:
   /contacts:
     get:
