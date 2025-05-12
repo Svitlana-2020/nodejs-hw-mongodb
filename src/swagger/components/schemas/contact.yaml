@@ -2,11 +2,9 @@ type: object
 required:
   - _id
   - name
-  - email
   - phoneNumber
-  - isFavourite
   - contactType
-  - photo
+  - userId
 properties:
   _id:
     description: "Contacts's id"
@@ -26,19 +24,25 @@ properties:
   phoneNumber:
     description: "Contact's phone number"
     type: string
-    format: number
     example: 22-33-444
 
   isFavourite:
     description: 'Whether is contact frequently used'
     type: boolean
     example: false
+
   contactType:
     description: "type of contact"
     type: string
     enum: ["work","home", "personal"]
+    
   photo:
     description: "Link to contact's photo"
     type: string
     example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
+  
+  userId:
+    description: "ID of the user"
+    type: string
+    example: 65e4decdd286b30065d54abc1
 

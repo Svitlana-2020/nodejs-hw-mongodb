@@ -21,6 +21,7 @@ parameters:
     schema:
       type: string
       example: 'name'
+      enum: ['_id', 'name', 'phoneNumber']
     description: "Can be sorted by any parameter. Default value - _id"
   - in: query
     name: sortOrder
@@ -79,4 +80,6 @@ responses:
                   example: 4
   '401':
     $ref: ../components/responses/401.yaml
+  '400':
+    $ref: ../components/responses/400.yaml
 

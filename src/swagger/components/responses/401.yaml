@@ -13,7 +13,7 @@ content:
           example: 401
         message:
           type: string
-          example: "authorization failed"
+          example: "Invalid or expired token"
         data:
           type: object
           required:
