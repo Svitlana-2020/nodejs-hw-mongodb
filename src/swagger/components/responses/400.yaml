@@ -13,7 +13,7 @@ content:
           example: 400
         message:
           type: string
-          example: "Missing required fields"
+          example: "Invalid ID format or missing required fields"
         data:
           type: object
           required:
@@ -21,4 +21,4 @@ content:
           properties:
             message:
               type: string
-              example: 'required field is missing'
+              example: 'Invalid ID format or missing required fields'

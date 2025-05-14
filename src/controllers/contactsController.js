@@ -7,6 +7,13 @@ import {parseSortParams} from "../utils/parseSortParams.js"
 const allContactsController =
     async (req, res) => {
         const{_id: userId} = req.user;
+        const { contactType } = req.query;
+        const filter = { userId };
+
+    if (contactType) {
+      filter.contactType = contactType;
+    }
+
         const paginationParams = parsePaginationParams(req.query);
         const sortParams = parseSortParams(req.query, contactsSortFields)
         
