@@ -35,6 +35,7 @@ parameters:
       type: string
       enum: ["work","home", "personal"]
       example: personal
+      description: filter by contact type
 responses:
   '200':
     description: "Successfully found contacts!"

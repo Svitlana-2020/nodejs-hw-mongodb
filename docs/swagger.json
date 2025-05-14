@@ -82,7 +82,8 @@
                 "home",
                 "personal"
               ],
-              "example": "personal"
+              "example": "personal",
+              "description": "filter by contact type"
             }
           }
         ],
@@ -145,9 +146,6 @@
                 }
               }
             }
-          },
-          "400": {
-            "$ref": "#/components/responses/400"
           },
           "401": {
             "$ref": "#/components/responses/401"
@@ -298,7 +296,7 @@
                     },
                     "message": {
                       "type": "string",
-                      "example": "Successfully found contact with id: 65ca67e7ae7f10c88b598384!"
+                      "example": "Successfully found contact id: 65ca67e7ae7f10c88b598384!"
                     },
                     "data": {
                       "type": "object",
@@ -553,7 +551,7 @@
                 },
                 "message": {
                   "type": "string",
-                  "example": "Missing required fields"
+                  "example": "Invalid ID format or missing required fields"
                 },
                 "data": {
                   "type": "object",
@@ -563,7 +561,7 @@
                   "properties": {
                     "message": {
                       "type": "string",
-                      "example": "required field is missing"
+                      "example": "Invalid ID format or missing required fields"
                     }
                   }
                 }
