@@ -20,7 +20,7 @@ const getAllContacts = async ({
     .skip(skip)
     .limit(perPage)
     .sort({ [sortBy]: sortOrder });
-  const totalItems = await Contacts.find({userId}).countDocuments(filter);
+  const totalItems = await Contacts.countDocuments(filter);
   const paginationData = calcPaginationData({ page, perPage, totalItems });
 
   return {

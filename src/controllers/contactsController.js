@@ -17,7 +17,7 @@ const allContactsController =
         const paginationParams = parsePaginationParams(req.query);
         const sortParams = parseSortParams(req.query, contactsSortFields)
         
-            const data = await getAllContacts({...paginationParams, ...sortParams, userId});
+            const data = await getAllContacts({...paginationParams, ...sortParams, userId, contactType});
         res.json({
             status: 200,
   message: "Successfully found contacts!",
